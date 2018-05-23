@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_RIGHT" prefHeight="480.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLTemperaturaController">
+   <children>
+      <HBox prefHeight="20.0" prefWidth="200.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="340.0">
+               <children>
+                  <Label text="TEMP" />
+               </children>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="340.0">
+               <children>
+                  <Label text="º" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="680.0">
+         <children>
+            <Label fx:id="lblTEMP" />
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

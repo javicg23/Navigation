@@ -9,6 +9,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -25,6 +27,13 @@ public class Navigation extends Application {
         stage.initStyle(StageStyle.UNDECORATED);
         
         Scene scene = new Scene(root);
+
+        //aplicar la plantilla css a la scene
+        scene.getStylesheets().add(getClass().getResource("/resources/style/estiloDiurno.css").toExternalForm());        
+        //añadir el icono a la aplicacion
+        Image icon = new Image(getClass().getResourceAsStream("/resources/img/icon.png"));
+        stage.getIcons().add(icon);
+        
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_RIGHT" prefHeight="480.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLTemperaturaController">
+<VBox alignment="TOP_RIGHT" prefHeight="480.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLTemperaturaController">
    <children>
       <HBox prefHeight="20.0" prefWidth="200.0">
          <children>

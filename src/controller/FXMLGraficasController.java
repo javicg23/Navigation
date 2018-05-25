@@ -103,7 +103,6 @@ public class FXMLGraficasController implements Initializable {
             //establecer el filtro de intervalo de tiempo a la grafica
             //como se recibe 1 dato cada segundo limitar el tamaño de la serie de acuerdo al filtro seleccionado
             int tamañoSerie = valorSlider * 60;
-            
         });
     }    
     

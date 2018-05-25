@@ -1,0 +1,118 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24-may-2018, 19:57:12
+    Author     : V
+*/
+@font-face {
+    font-family: 'Bookerly';
+    src: url('../font/Bookerly/Bookerly-Regular.ttf');
+}
+.root{
+    -fx-background-color: white;
+    -fx-font-family: 'Bookerly';
+    -fx-font-size: 11px; 
+}
+
+/*estilo general para los botones*/
+.boton {
+    -fx-background-color: transparent;
+/*        linear-gradient(#e2e2e2, #d6d6d6),
+        linear-gradient(#ececec 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #e6e6e6 50%);*/
+    -fx-border-color:linear-gradient(from 0% 0% to 100% 100%, transparent 5%, #2a9523 30%, #2a9523 70%, transparent 95%);
+    -fx-border-width: 1.5px 0px 0px 0px;
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.boton:hover {
+    -fx-background-color: transparent;
+/*        linear-gradient(#f2f2f2, #d6d6d6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #f6f6f6 50%);*/
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.boton:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
+.boton:focused {
+    -fx-background-color: linear-gradient(from 0% 90% to 70% 90%, #2a9523 0%, #2a9523 20%, transparent 20%);
+}
+
+/*especifico para el boton de cambio css para que no se quede focused*/
+.botonEstilo:focused {
+    -fx-background-color: transparent;
+}
+
+/*estilo de los botones para añadirles la imagen de fondo*/
+.imagenBrujula{
+    -fx-background-image: url('../img/brujula_d.png');
+}
+
+.imagenViento{
+    -fx-background-image: url('../img/viento_d.png');
+}
+
+.imagenGPS{
+    -fx-background-image: url('../img/ubicacion_d.png');
+}
+
+.imagenInclinacion{
+    -fx-background-image: url('../img/inclinacion_d.png');
+}
+
+.imagenTemperatura{
+    -fx-background-image: url('../img/temperatura_d.png');
+}
+
+.imagenGraficas{
+    -fx-background-image: url('../img/grafica_d.png');
+}
+
+.imagenNocturno{
+    -fx-background-image: url('../img/estilo.png');
+}
+
+.imagenConfiguracion{
+    -fx-background-image: url('../img/ajustes.png');
+}
+
+.imagenApagar{
+    -fx-background-image: url('../img/apagar.png');
+}
+
+/*Estilo para la pantalla del viento*/
+.cajaAbajoDerecha {
+    -fx-border-color:linear-gradient(from 0% 0% to 100% 100%, transparent 5%, #2a9523 30%, #2a9523 70%, transparent 95%);
+    -fx-border-width: 0px 3px 3px 0px;
+}
+
+.cajaDerecha {
+    -fx-border-color:linear-gradient(from 0% 0% to 100% 100%, transparent 5%, #2a9523 30%, #2a9523 70%, transparent 95%);
+    -fx-border-width: 0px 3px 0px 0px;
+}
+
+.cajaAbajo {
+    -fx-border-color:linear-gradient(from 0% 0% to 100% 100%, transparent 5%, #2a9523 30%, #2a9523 70%, transparent 95%);
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.magnitudCuatroElementos{
+    -fx-font-size: 35px;
+    -fx-text-fill: #676767;
+}
+
+.medidaCuatroElementos{
+    -fx-font-size: 96px;
+    -fx-text-fill: #000000;
+}

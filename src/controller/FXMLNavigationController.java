@@ -124,6 +124,8 @@ public class FXMLNavigationController implements Initializable {
 
     @FXML
     private void pulsarBtnNocturno(ActionEvent event) {
+        hBox.getScene().getStylesheets().clear();
+        hBox.getScene().getStylesheets().add(getClass().getResource("/resources/style/estiloNocturno.css").toExternalForm());   
     }
 
     @FXML
@@ -137,7 +139,8 @@ public class FXMLNavigationController implements Initializable {
         alert.setTitle("Cerrar aplicación");
         alert.setHeaderText(null);
         alert.setContentText("¿Está seguro de que desea cerrar la aplicación?");
-
+        //añadir el icono de la aplicacion al alert
+        ((Stage) alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resources/img/icon.png"));
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
             System.exit(0);

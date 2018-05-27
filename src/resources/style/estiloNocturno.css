@@ -1,0 +1,194 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24-may-2018, 19:57:12
+    Author     : V
+*/
+@font-face {
+    font-family: 'Bookerly';
+    src: url('../font/Bookerly/Bookerly-Regular.ttf');
+}
+.root{
+    -fx-background-color: black;
+    -fx-font-family: 'Bookerly';
+    -fx-font-size: 11px; 
+    -fx-text-fill: white;
+}
+
+/*estilo de la pantalla general*/
+.ventana {
+    -fx-border-width: 2.5px 2.5px 2.5px 0px;
+    -fx-border-color: linear-gradient(from 0% 0% to 100% 100%, transparent 0%, #2a9523 30%, #2a9523 70%, transparent 100%);;
+}
+
+#vboxPrincipal {
+    -fx-background-image: url("'../img/imgPrincipal.jpg");
+    -fx-background-repeat: no-repeat;   
+    -fx-background-size: 725 480;
+    -fx-background-position: center center;
+}
+
+/*estilo general para los botones*/
+.boton {
+    -fx-background-color: transparent;
+/*        linear-gradient(#e2e2e2, #d6d6d6),
+        linear-gradient(#ececec 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #e6e6e6 50%);*/
+    -fx-border-color:linear-gradient(from 0% 0% to 100% 100%, transparent 5%, #2a9523 30%, #2a9523 70%, transparent 95%);
+    -fx-border-width: 1.5px 0px 0px 0px;
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    /*-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );*/
+}
+
+.boton:hover {
+    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.boton:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
+.boton:focused {
+    -fx-background-color: linear-gradient(from 0% 90% to 70% 90%, #2a9523 0%, #2a9523 20%, transparent 20%);
+}
+
+/*solo para que aparezca el borde en la parte inferior del icono de la grafica*/
+.botonGraficas{
+    -fx-border-width: 1.5px 0px 1.5px 0px;
+}
+
+/*especifico para el boton de cambio css para que no se quede focused*/
+.botonEstilo:focused {
+    -fx-background-color: transparent;
+}
+
+/*estilo de los botones para añadirles la imagen de fondo*/
+.imagenBrujula{
+    -fx-background-image: url('../img/brujula_n.png');
+}
+
+.imagenViento{
+    -fx-background-image: url('../img/viento_n.png');
+}
+
+.imagenGPS{
+    -fx-background-image: url('../img/ubicacion_n.png');
+}
+
+.imagenInclinacion{
+    -fx-background-image: url('../img/inclinacion_n.png');
+    -fx-background-repeat: no-repeat;
+}
+
+.imagenTemperatura{
+    -fx-background-image: url('../img/temperatura_n.png');
+}
+
+.imagenGraficas{
+    -fx-background-image: url('../img/grafica_n.png');
+}
+
+.imagenNocturno{
+    -fx-background-image: url('../img/estilo.png');
+}
+
+.imagenConfiguracion{
+    -fx-background-image: url('../img/ajustes.png');
+}
+
+.imagenApagar{
+    -fx-background-image: url('../img/apagar.png');
+}
+
+/*Estilos para las cajas y hacer cerramiento*/
+.cajaAbajoDerecha {
+    -fx-border-color:linear-gradient(from 0% 0% to 100% 100%, transparent 5%, #2a9523 30%, #2a9523 70%, transparent 95%);
+    -fx-border-width: 0px 3px 3px 0px;
+}
+
+.cajaDerecha {
+    -fx-border-color:linear-gradient(from 0% 0% to 100% 100%, transparent 5%, #2a9523 30%, #2a9523 70%, transparent 95%);
+    -fx-border-width: 0px 3px 0px 0px;
+}
+
+.cajaAbajo {
+    -fx-border-color:linear-gradient(from 0% 0% to 100% 100%, transparent 5%, #2a9523 30%, #2a9523 70%, transparent 95%);
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+/*Estilo para la pantalla del viento*/
+.magnitudCuatroElementos{
+    -fx-font-size: 35px;
+    -fx-text-fill: #c8c8c8;
+}
+
+.medidaCuatroElementos{
+    -fx-font-size: 96px;
+    -fx-text-fill: white;
+}
+
+/*Estilo para la pantalla de la brujula*/
+.magnitudElementosBrujula{
+    -fx-font-size: 20px;
+    -fx-text-fill: #c8c8c8;
+}
+
+.medidaElementosBrujula{
+    -fx-font-size: 74px;
+    -fx-text-fill: white;
+}
+
+/*Estilo para las pantallas de inclinacion, localizacion y temperatura*/
+.magnitudDosElementos{
+    -fx-font-size: 30px;
+    -fx-text-fill: #c8c8c8;
+}
+
+.medidaDosElementos{
+    -fx-font-size: 90px;
+    -fx-text-fill: white;
+}
+
+/* Estilo para la medida de los elementos en los datos de la graficas*/
+.medidaGraficas {
+    -fx-font-size: 50px;
+    -fx-text-fill: white;
+}
+
+/*estilo para los textos de la pantalla de configuracion*/
+.estiloConfiguracion {
+    -fx-font-size: 20px;
+    -fx-text-fill: #c8c8c8;
+}
+
+/*estilo para los textos de la pantalla de grafica (leyenda,slider)*/
+.estiloDatosGrafica {
+    -fx-font-size: 13px;
+    -fx-text-fill: #c8c8c8;
+}
+
+/*estilo para las graficas*/
+.chart {
+    -fx-background-color: transparent;
+}
+
+.chart-plot-background {
+    -fx-background-color:transparent;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke:#2a9523;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #2a9523;
+}
+
+.default-color0.chart-series-line {
+    -fx-stroke: #0a11ff;
+}

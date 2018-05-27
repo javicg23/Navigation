@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLBrujulaController">
+   <children>
+      <HBox prefHeight="20.0" prefWidth="200.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="340.0">
+               <children>
+                  <Label styleClass="magnitudDosElementos" text="HDG" />
+               </children>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="340.0">
+               <children>
+                  <Label styleClass="magnitudDosElementos" text="º" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <HBox fx:id="hboxBrujula" alignment="CENTER" prefHeight="380.0" prefWidth="700.0" styleClass="cajaAbajo">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding></HBox>
+      <HBox prefHeight="250.0" prefWidth="200.0">
+         <children>
+            <HBox prefWidth="362.0" styleClass="cajaDerecha">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="362.0">
+                     <children>
+                        <HBox prefHeight="20.0" prefWidth="200.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label styleClass="magnitudElementosBrujula" text="COG" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label styleClass="magnitudElementosBrujula" text="º" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <Label fx:id="lblCOG" styleClass="medidaElementosBrujula" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" prefWidth="362.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="362.0">
+                     <children>
+                        <HBox prefHeight="20.0" prefWidth="200.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label styleClass="magnitudElementosBrujula" text="SOG" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label styleClass="magnitudElementosBrujula" text="kn" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <Label fx:id="lblSOG" styleClass="medidaElementosBrujula" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

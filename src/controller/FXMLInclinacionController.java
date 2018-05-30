@@ -26,13 +26,14 @@ public class FXMLInclinacionController implements Initializable {
     private Label lblROLL;
 
     private Model model;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         model = Model.getInstance();
-        
+
         // anadimos un listener para que cuando cambie el valor en el modelo 
         //se actualice su valor en su correspondiente representacion grafica
         //PITCH - inclinacion longitudinal de la embarcacion
@@ -42,7 +43,7 @@ public class FXMLInclinacionController implements Initializable {
                 lblPITCH.setText(dat);
             });
         });
-        
+
         //ROLL - inclinacion transversal de la embarcacion
         model.ROLLProperty().addListener((observable, oldValue, newValue) -> {
             String dat = String.valueOf(newValue);
@@ -50,6 +51,6 @@ public class FXMLInclinacionController implements Initializable {
                 lblROLL.setText(dat);
             });
         });
-    }    
-    
+    }
+
 }

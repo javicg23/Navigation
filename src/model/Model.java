@@ -9,19 +9,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.List;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.chart.XYChart;
 import net.sf.marineapi.nmea.event.AbstractSentenceListener;
-import net.sf.marineapi.nmea.io.ExceptionListener;
 import net.sf.marineapi.nmea.io.SentenceReader;
 import net.sf.marineapi.nmea.sentence.HDGSentence;
 import net.sf.marineapi.nmea.sentence.MDASentence;
@@ -41,17 +33,28 @@ public class Model {
     // esto asegura que solamente se va a crear una instancia de la clase model
     // y se podra acceder a ella desde cualquier clase del proyecto
     private static Model model;
+    //variable para saber el estilo aplicado y poder cambiar la brujula por codigo
+    //true -> diurno, false -> nocturno
+    private static boolean estilo = true;
 
     private Model() {
     }
+
     public static Model getInstance() {
         if (model == null) {
             model = new Model();
         }
         return model;
     }
-    
-    
+
+    public static void setEstilo(boolean style) {
+        estilo = style;
+    }
+
+    public static boolean getEstilo() {
+        return estilo;
+    }
+
     //===================================================================
     // CUIDADO, el objeto de la clase SentenceReader se ejecuta en un hilo
     // no se pueden modificar las propiedades de los objetos graficos desde
@@ -60,92 +63,95 @@ public class Model {
 
     //True Wind Dir -- direccion del viento respecto al norte
     private final DoubleProperty TWD = new SimpleDoubleProperty();
+
     public DoubleProperty TWDProperty() {
         return TWD;
     }
-    
+
     // True Wind Speed -- intensidad de viento
     private final DoubleProperty TWS = new SimpleDoubleProperty();
+
     public DoubleProperty TWSProperty() {
         return TWS;
     }
-    
+
     // Temperatura 
     private final DoubleProperty TEMP = new SimpleDoubleProperty();
+
     public DoubleProperty TEMPProperty() {
         return TEMP;
     }
-    
+
     //Heading - compas magnetic
     private final DoubleProperty HDG = new SimpleDoubleProperty();
+
     public DoubleProperty HDGProperty() {
         return HDG;
     }
-    
+
     // apparent Wind Angle -- angulo aparente del viento
     private final DoubleProperty AWA = new SimpleDoubleProperty();
+
     public DoubleProperty AWAProperty() {
         return AWA;
     }
     // apparent Wind Speed -- velocidad media del viento
     private final DoubleProperty AWS = new SimpleDoubleProperty();
+
     public DoubleProperty AWSProperty() {
         return AWS;
     }
-    
+
     // inclinacion longitudinal de la embarcacion
     private final DoubleProperty PITCH = new SimpleDoubleProperty();
+
     public DoubleProperty PITCHProperty() {
         return PITCH;
     }
-    
+
     // inclinacion transversal de la embarcacion
     private final DoubleProperty ROLL = new SimpleDoubleProperty();
+
     public DoubleProperty ROLLProperty() {
         return ROLL;
     }
-    
-    
+
     //==================================================================
     // anade todas las propiedades que necesites, en el hilo principal
     // podras anadir listeners sobre estas propiedades que modifquen la interfaz
-    
     // Position -- posicion del GPS
     private final ObjectProperty<Position> GPS = new SimpleObjectProperty();
+
     public ObjectProperty<Position> GPSProperty() {
         return GPS;
     }
-    
+
     // COG -- rumbo del GPS
     private final DoubleProperty COG = new SimpleDoubleProperty();
+
     public DoubleProperty COGProperty() {
         return COG;
     }
     // SOG -- velocidad del GPS
     private final DoubleProperty SOG = new SimpleDoubleProperty();
+
     public DoubleProperty SOGProperty() {
         return SOG;
     }
-    
+
     // latitud por GPS
     private final DoubleProperty LAT = new SimpleDoubleProperty();
+
     public DoubleProperty LATProperty() {
         return LAT;
     }
-    
+
     // longitud por GPS
     private final DoubleProperty LON = new SimpleDoubleProperty();
+
     public DoubleProperty LONProperty() {
         return LON;
     }
-    
-    
-    
-    
-    
-    
-    
-    
 
     //====================================================================
     //anadir tantos sentenceListener como tipos de sentence queremos tratar
@@ -168,11 +174,10 @@ public class Model {
             TWD.set(sentence.getTrueWindDirection());
             TWS.set(sentence.getWindSpeedKnots());
             TEMP.set(sentence.getAirTemperature());
-   
+
         }
     }
-    
-    
+
     //========================================================================================
     // anade todas las clases de que extiendan AbstractSentenceListener que necesites
     class RMCSentenceListener
@@ -185,7 +190,7 @@ public class Model {
             SOG.set(sentence.getSpeed());
         }
     }
-    
+
     //========================================================================================
     // anade todas las clases de que extiendan AbstractSentenceListener que necesites
     class MWVSentenceListener
@@ -197,7 +202,7 @@ public class Model {
             AWS.set(sentence.getSpeed());
         }
     }
-    
+
     // anade todas las clases de que extiendan AbstractSentenceListener que necesites
     class XDRSentenceListener
             extends AbstractSentenceListener<XDRSentence> {
@@ -213,10 +218,7 @@ public class Model {
             }
         }
     }
-    
-    
-    
-    
+
     // falta por gestiona que solamente hay un senteceReader
     public void addSentenceReader(File file) throws FileNotFoundException {
 
@@ -225,7 +227,7 @@ public class Model {
             reader.stop();
         }
         reader = new SentenceReader(stream);
- 
+
         //==================================================================
         //============= Registra todos los sentenceListener que necesites
         HDGSentenceListener hdg = new HDGSentenceListener();
@@ -236,22 +238,23 @@ public class Model {
 
         RMCSentenceListener rmd = new RMCSentenceListener();
         reader.addSentenceListener(rmd);
-        
+
         MWVSentenceListener mwv = new MWVSentenceListener();
         reader.addSentenceListener(mwv);
-        
+
         XDRSentenceListener xdr = new XDRSentenceListener();
         reader.addSentenceListener(xdr);
-                
-         //===============================================================
 
-         //===============================================================
-         //== Anadimos un exceptionListener para que capture las tramas que 
-         // == no tienen parser, ya que no las usamos
-         reader.setExceptionListener(e->{System.out.println(e.getMessage());});
-         
-         //================================================================
-         //======== arrancamos el SentenceReader para que empieze a escucha             
+        //===============================================================
+        //===============================================================
+        //== Anadimos un exceptionListener para que capture las tramas que 
+        // == no tienen parser, ya que no las usamos
+        reader.setExceptionListener(e -> {
+            System.out.println(e.getMessage());
+        });
+
+        //================================================================
+        //======== arrancamos el SentenceReader para que empieze a escucha             
         reader.start();
     }
 }

@@ -30,13 +30,14 @@ public class FXMLVientoController implements Initializable {
     private Label lblAWS;
 
     private Model model;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         model = Model.getInstance();
-        
+
         // anadimos un listener para que cuando cambie el valor en el modelo 
         //se actualice su valor en su correspondiente representacion grafica
         //TWD - direccion del viento
@@ -46,7 +47,7 @@ public class FXMLVientoController implements Initializable {
                 lblTWD.setText(dat);
             });
         });
-        
+
         //TWS - velocidad del viento
         model.TWSProperty().addListener((observable, oldValue, newValue) -> {
             String dat = String.valueOf(newValue);
@@ -54,8 +55,7 @@ public class FXMLVientoController implements Initializable {
                 lblTWS.setText(dat);
             });
         });
-        
-        
+
         //AWS - velocidad del viento medida en el barco
         model.AWSProperty().addListener((observable, oldValue, newValue) -> {
             String dat = String.valueOf(newValue);
@@ -63,7 +63,7 @@ public class FXMLVientoController implements Initializable {
                 lblAWS.setText(dat);
             });
         });
-        
+
         //AWA - angulo aparente del viento
         model.AWAProperty().addListener((observable, oldValue, newValue) -> {
             String dat = String.valueOf(newValue);
@@ -71,6 +71,6 @@ public class FXMLVientoController implements Initializable {
                 lblAWA.setText(dat);
             });
         });
-    }    
-    
+    }
+
 }

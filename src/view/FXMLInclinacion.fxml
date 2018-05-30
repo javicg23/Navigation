@@ -17,23 +17,23 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="cajaAbajo">
          <children>
             <HBox prefHeight="20.0" prefWidth="200.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="340.0">
                      <children>
-                        <Label text="PITCH" />
+                        <Label styleClass="magnitudDosElementos" text="PITCH" />
                      </children>
                   </HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="340.0">
                      <children>
-                        <Label text="º" />
+                        <Label styleClass="magnitudDosElementos" text="º" />
                      </children>
                   </HBox>
                </children>
             </HBox>
-            <Label fx:id="lblPITCH" />
+            <Label fx:id="lblPITCH" styleClass="medidaDosElementos" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -45,17 +45,17 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="340.0">
                      <children>
-                        <Label text="ROLL" />
+                        <Label styleClass="magnitudDosElementos" text="ROLL" />
                      </children>
                   </HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="340.0">
                      <children>
-                        <Label text="º" />
+                        <Label styleClass="magnitudDosElementos" text="º" />
                      </children>
                   </HBox>
                </children>
             </HBox>
-            <Label fx:id="lblROLL" />
+            <Label fx:id="lblROLL" styleClass="medidaDosElementos" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

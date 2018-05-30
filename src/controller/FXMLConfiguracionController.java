@@ -26,27 +26,29 @@ public class FXMLConfiguracionController implements Initializable {
     @FXML
     private Label lblFichero;
 
-    
     private Model model;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         model = Model.getInstance();
-    }    
+    }
 
     @FXML
     private void pulsarElegirFichero(ActionEvent event) throws FileNotFoundException {
+        lblFichero.getScene().getWindow().setOpacity(0.8);
         FileChooser ficheroChooser = new FileChooser();
         ficheroChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("ficheros NMEA", "*.NMEA"));
         ficheroChooser.setTitle("Fichero datos NMEA");
-        
+
         File ficheroNMEA = ficheroChooser.showOpenDialog(lblFichero.getScene().getWindow());
         if (ficheroNMEA != null) {
             lblFichero.setText("Fichero: " + ficheroNMEA.getName());
             model.addSentenceReader(ficheroNMEA);
         }
+        lblFichero.getScene().getWindow().setOpacity(1);
     }
-    
+
 }
